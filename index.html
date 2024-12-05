@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Splitter</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <div id="notification" class="notification hidden">
+        <span>✔ Copied!</span>
+      </div>
+    <h1>Text Splitter and Clipboard Copier</h1>
+    <textarea id="textInput" placeholder="Enter your text here..." rows="6"></textarea>
+    <div class="info">
+        <p id="charCount">Character Count: 0</p>
+        <p id="wordCount">Word Count: 0</p>
+        <label for="splitLength">Characters per split:</label>
+        <input type="number" id="splitLength" placeholder="e.g., 50" min="1">
+      </div>
+    <button id="confirmBtn">Confirm</button>
+    <div id="buttonContainer" class="button-container"></div>
+  </div>
+
+  <script>
+    const textInput = document.getElementById("textInput");
+    const charCount = document.getElementById("charCount");
+    const wordCount = document.getElementById("wordCount");
+    const splitLengthInput = document.getElementById("splitLength");
+    const confirmBtn = document.getElementById("confirmBtn");
+    const buttonContainer = document.getElementById("buttonContainer");
+    const notification = document.getElementById("notification");
+  
+    // Update character and word count in real-time
+    textInput.addEventListener("input", () => {
+      const text = textInput.value;
+      charCount.textContent = `Character Count: ${text.length}`;
+      wordCount.textContent = `Word Count: ${text.split(/\s+/).filter(Boolean).length}`; // Split by spaces and remove empty strings
+    });
+  
+    // Show notification
+    function showNotification() {
+      notification.classList.remove("hidden");
+      notification.classList.add("show");
+  
+      // Hide notification after 2 seconds
+      setTimeout(() => {
+        notification.classList.remove("show");
+        notification.classList.add("hidden");
+      }, 2000);
+    }
+  
+    // Handle confirm button click
+    confirmBtn.addEventListener("click", () => {
+      const text = textInput.value;
+      const splitLength = parseInt(splitLengthInput.value, 10);
+  
+      // Clear existing buttons
+      buttonContainer.innerHTML = "";
+  
+      if (!text) {
+        alert("Please enter some text to split.");
+        return;
+      }
+  
+      if (!splitLength || splitLength <= 0) {
+        alert("Please enter a valid number for split length.");
+        return;
+      }
+  
+      // Split text into chunks with word boundary logic
+      const parts = [];
+      let currentIndex = 0;
+  
+      while (currentIndex < text.length) {
+        // Take the chunk of the specified length
+        let chunk = text.slice(currentIndex, currentIndex + splitLength);
+  
+        // Check if the chunk ends in the middle of a word
+        if (chunk[chunk.length - 1] !== " " && currentIndex + splitLength < text.length) {
+          // If so, move back to the last space in the chunk
+          const lastSpaceIndex = chunk.lastIndexOf(" ");
+          if (lastSpaceIndex !== -1) {
+            chunk = chunk.slice(0, lastSpaceIndex);
+          }
+        }
+  
+        // Add the chunk to the parts array
+        parts.push(chunk.trim());
+  
+        // Move the current index forward by the length of the chunk
+        currentIndex += chunk.length;
+  
+        // Skip any leading spaces in the next chunk
+        while (text[currentIndex] === " ") {
+          currentIndex++;
+        }
+      }
+  
+      // Add part labels and create buttons for each part
+      const totalParts = parts.length;
+      parts.forEach((part, index) => {
+        // Add the label as a new line before the text
+        const labeledPart = `[${index + 1}/${totalParts} parts]\n${part}`;
+  
+        const button = document.createElement("button");
+        button.textContent = `Copy Part ${index + 1}`;
+        button.classList.add("copy-btn");
+        button.addEventListener("click", () => {
+          navigator.clipboard.writeText(labeledPart).then(() => {
+            showNotification(); // Show the notification
+          });
+        });
+        buttonContainer.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>
