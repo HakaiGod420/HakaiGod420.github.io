@@ -67,6 +67,17 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+/* Shared Button Styles */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
   
   /* Confirm Button */
   #confirmBtn {
@@ -140,3 +151,22 @@
 .notification.hidden {
   opacity: 0;
 }
+
+/* Clear Text Button */
+#clearBtn {
+    margin-top:10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background: #f44336; /* Red */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    #clearBtn:hover {
+        background: #e53935; /* Slightly darker red */
+    }
