@@ -104,7 +104,7 @@
             const totalParts = parts.length;
             parts.forEach((part, index) => {
                 // Add the label as a new line before the text
-                const labeledPart = `[${index + 1}/${totalParts} parts]\n${part}`;
+                const labeledPart = `Translate to english: \n${part}`;
 
                 const button = document.createElement("button");
                 button.textContent = `Copy Part ${index + 1}`;
