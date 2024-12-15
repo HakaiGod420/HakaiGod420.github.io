@@ -1,150 +1,218 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body Styling */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    padding: 20px;
-  }
-  
-  /* Container */
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Heading */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #555;
-  }
-  
-  /* Text Area */
-  textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    margin-bottom: 15px;
-  }
-  
-  /* Info Section */
-  .info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
-  .info p {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  .info label {
-    font-size: 0.9rem;
-    margin-right: 10px;
-  }
-  
-  .info input {
-    width: 80px;
-    padding: 5px;
-    font-size: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-/* Shared Button Styles */
-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-  
-  /* Confirm Button */
-  #confirmBtn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  #confirmBtn:hover {
-    background: #45a049;
-  }
-  
-  /* Button Container */
-  .button-container {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .copy-btn {
-    padding: 10px;
-    font-size: 0.9rem;
-    background: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .copy-btn:hover {
-    background: #0056b3;
-  }
+/* Body Styling */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f0f4f9;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
 
-  .info p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 5px 0;
-  }
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Text Area */
+textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Info Section */
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.info label {
+  font-size: 0.9rem;
+  color: #444;
+  margin-right: 10px;
+}
+
+.info input {
+  width: 100px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.info input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Split Options */
+.split-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.split-options label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.split-options input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.split-options input[type="radio"]:checked {
+  background-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Buttons */
+button {
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Confirm Button */
+#confirmBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #4CAF50, #45A049);
+  color: #ffffff;
+}
+
+#confirmBtn:hover {
+  background: linear-gradient(135deg, #45A049, #388E3C);
+}
+
+/* Clear Text Button */
+#clearBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #F44336, #E53935);
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+#clearBtn:hover {
+  background: linear-gradient(135deg, #E53935, #D32F2F);
+}
+
+/* Copy Buttons */
+.copy-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #007BFF, #0056B3);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  min-width: 140px;
+}
+
+.copy-btn small {
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  margin-top: 4px;
+}
+
+.copy-btn:hover {
+  background: linear-gradient(135deg, #0056B3, #003F8C);
+  transform: translateY(-2px);
+}
 
 /* Notification Popup */
 .notification {
   position: fixed;
-  top: 20px; /* Adjust distance from the top */
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
-  background: #4caf50;
-  color: #fff;
-  padding: 15px 30px;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: #ffffff;
+  padding: 15px 40px;
   border-radius: 8px;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1000;
 }
 
 .notification.show {
   opacity: 1;
+  transform: translateX(-50%) translateY(10px);
   pointer-events: auto;
 }
 
@@ -152,21 +220,77 @@ button {
   opacity: 0;
 }
 
-/* Clear Text Button */
-#clearBtn {
-    margin-top:10px;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background: #f44336; /* Red */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* Button Container */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-    #clearBtn:hover {
-        background: #e53935; /* Slightly darker red */
-    }
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  textarea {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .split-options {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* Start Text Options */
+.start-text-options {
+  margin-bottom: 20px;
+}
+
+.start-text-options label {
+  font-size: 0.9rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.start-text-options input[type="checkbox"] {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+#startTextInputContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#startTextInputContainer.hidden {
+  display: none;
+}
+
+#startText {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+#startText:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
